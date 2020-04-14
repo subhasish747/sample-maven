@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+
+<localRepository>C:\Users\Dell\.m2\repo1</localRepository> <!-- don't use this path, either delete it or change the value -->
+  <servers>
+  </server> 
+
+  </servers>
+  <profiles>
+
+    <profile> 
+
+      <repositories>
+
+        <repository>
+          <releases>
+            <updatePolicy>always</updatePolicy>
+          </releases>
+          <snapshots>
+            <updatePolicy>never</updatePolicy> 
+          </snapshots>
+          <id>bpm-main-610</id>
+          <name>bpm-main-610</name>
+          <!-- I am using techpreview repo locally, which does the trick, but recommendation towards customers is to use
+ga repository -> https://maven.repository.redhat.com/ga/ -->
+          
+          <url>https://maven.repository.redhat.com/techpreview/all/</url> 
+        </repository>
+		
+		<repository>
+			  <id>jboss-enterprise-repository-group</id>
+			  <name>Red Hat JBoss Enterprise Maven Repository</name>
+			  <url>https://maven.repository.redhat.com/ga/</url>
+			  <layout>default</layout>
+			  <releases>
+				<updatePolicy>never</updatePolicy>
+			  </releases>
+			  <snapshots>
+				<updatePolicy>daily</updatePolicy>
+			  </snapshots>
+		</repository>
+
+      </repositories>
+      <pluginRepositories>
+
+
+       <pluginRepository>
+          <releases>
+            <updatePolicy>always</updatePolicy>
+          </releases>
+          <snapshots>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+          <id>bpm-plugin-610</id>
+          <name>bpm-plugin-610</name>
+               <!-- I am using techpreview repo locally, which does the trick, but recommendation towards customers is to use
+ga repository -> https://maven.repository.redhat.com/ga/ -->
+          <url>https://maven.repository.redhat.com/techpreview/all/</url>
+        </pluginRepository> 
+		<pluginRepository>
+		  <id>jboss-enterprise-repository-group</id>
+		  <name>Red Hat JBoss Enterprise Maven Repository</name>
+		  <url>https://maven.repository.redhat.com/ga/</url>
+		  <layout>default</layout>
+		  <releases>
+			<updatePolicy>never</updatePolicy>
+		  </releases>
+		  <snapshots>
+			<updatePolicy>daily</updatePolicy>
+		  </snapshots>
+		</pluginRepository>
+      </pluginRepositories>
+      <id>bpm-repos</id>
+    </profile>
+
+    </profiles> 
+
+   <activeProfiles>
+   <activeProfile>bpm-repos</activeProfile> 
+
+    </activeProfiles>
+  <pluginGroups>
+    <pluginGroup>org.apache.maven.plugins</pluginGroup>
+    <pluginGroup>org.codehaus.mojo</pluginGroup>
+  </pluginGroups>
+</settings>
